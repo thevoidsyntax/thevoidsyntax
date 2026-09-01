@@ -119,6 +119,12 @@ Updated when something is actually finished.
 
 ---
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/thevoidsyntax/thevoidsyntax/output/snake.svg" alt="Contribution Snake"/>
+</div>
+
+---
+
 Open to Business Analyst roles, process improvement projects, and requirements consulting. Based in Jakarta.
 
 Fastest reply via [email](mailto:riowicaksono.work@gmail.com) or [LinkedIn](https://linkedin.com/in/riowicaksono).
