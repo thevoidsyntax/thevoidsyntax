@@ -125,10 +125,6 @@ Updated when something is actually finished.
 
 ---
 
-
-
----
-
 Open to Business Analyst roles, process improvement projects, and requirements consulting. Based in Jakarta.
 
 Fastest reply via [email](mailto:riowicaksono.work@gmail.com) or [LinkedIn](https://linkedin.com/in/riowicaksono).
