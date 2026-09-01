@@ -14,47 +14,27 @@
 
 ---
 
-Business Analyst. I write the documents that turn "we need a system for this" into something a developer can actually build.
+Business Analyst based in Jakarta. I write the documents that turn "we need a system for this" into something a developer can actually build.
 
-Most of my work is unglamorous — sitting with users, mapping what they actually do versus what the SOP says they do, then writing it down properly. The gap between those two is where most project failures live.
+Most of the work is unglamorous — sitting with users, mapping what they actually do versus what the SOP says they do, then writing it down properly. The gap between those two is where most project failures live.
 
-Lately I've been learning AI workflows and defensive security. Not to switch careers. Because when a stakeholder asks "can AI do this?" or "is this data safe?", I'd rather answer than nod and take a note.
+I'm also learning AI workflows and defensive security. Not to switch careers. When a stakeholder asks "can AI do this?" or "is this data safe?", I'd rather answer than nod and take a note.
 
 ---
 
-### Case: Approval Workflow
+### What I Work On
 
-An internal approval process that took four days. Most of that was waiting, not working.
+**Requirements and specifications**
 
-**Before**
+BRD and FSD documents, use case specs, process maps. The templates I use are in [`brd-template`](https://github.com/thevoidsyntax/brd-template), trimmed down from the bloated versions most organisations hand out — most sections in a standard template get filled with "N/A" and reviewers stop reading by page four.
 
-```mermaid
-flowchart LR
-    A[Request via email] --> B[Manual check<br/>across 3 spreadsheets]
-    B --> C[Print, sign, scan]
-    C --> D[Re-key into system]
-    D --> E[~4 days end to end]
+**Data validation**
 
-    style E fill:#3b1f1f,stroke:#f87171,color:#fff
-```
+T-SQL for reconciliation and integrity checks. Row counts after migration, duplicates on business keys, orphan records, amount reconciliation. Scripts in [`sql-recon-scripts`](https://github.com/thevoidsyntax/sql-recon-scripts). These answer the question that comes up in every UAT: is this number actually right?
 
-The re-keying step was the one everyone complained about. It was not the real problem. The real problem was that nobody could tell where a request was sitting, so people chased it by email and the queue never cleared.
+**Testing and rollout**
 
-**After**
-
-```mermaid
-flowchart LR
-    A[Request via form] --> B[Auto-validation<br/>T-SQL rules]
-    B --> C{Exception?}
-    C -->|No| D[Auto-approve]
-    C -->|Yes| E[Route to reviewer]
-    D --> F[~2 hours end to end]
-    E --> F
-
-    style F fill:#1b3a2f,stroke:#4ade80,color:#fff
-```
-
-Roughly 70% of requests matched clean rules and no longer needed a human. The remaining 30% went to a reviewer with the validation results already attached. Names and figures are generalised.
+SIT coordination, UAT facilitation, defect tracking in JIRA. Every requirement gets at least one negative and one boundary case — positive-only coverage is how defects reach production.
 
 ---
 
@@ -82,13 +62,13 @@ Two of the four outcomes are "don't automate." That ratio is roughly accurate in
 
 ---
 
-### Things I Learned the Hard Way
+### Two Things I Built While Learning
 
-| What happened | What I do now |
-|---|---|
-| Wrote an FSD from the SOP without watching the actual process. Half the requirements were wrong by UAT. | I sit with users before writing anything. The SOP is a starting hypothesis, not a source. |
-| Took UAT sign-off as proof the users understood the change. They signed to end the meeting. | Sign-off requires them to run their own scenario, not the one I prepared. |
-| Automated a monthly report nobody was reading. Saved four hours a year. | I ask who reads the output before I touch the process that produces it. |
+**[`Access-Matrix-Auditor`](https://github.com/thevoidsyntax/Access-Matrix-Auditor)** — reads a role-permission matrix and reports where one role holds both sides of a control that should be split. Run against a sample finance matrix of six roles and sixteen permissions, it found eight high-severity conflicts.
+
+The interesting failure is the System Admin role. It trips five rules, and it should — an admin holds everything by definition. A tool that flags it every run is a tool people stop reading. Accepting known exceptions with a written reason is what this needs next, and it's the reason most audit tooling gets ignored.
+
+**[`LLM-Doc-Drafter`](https://github.com/thevoidsyntax/LLM-Doc-Drafter)** — takes raw meeting notes and produces a first-draft set of user stories and open questions. The draft is wrong often enough that shipping it unreviewed would be worse than writing from scratch. The value is in the open-questions section: the model is reliably good at spotting what the notes did not say, and unreliable at deciding what the requirement should be.
 
 ---
 
@@ -98,34 +78,27 @@ Two of the four outcomes are "don't automate." That ratio is roughly accurate in
 |---|---|
 | **Documentation** | BRD, FSD, use case specs, process maps |
 | **Tools** | JIRA, Confluence, Visio, Excel |
-| **Data** | T-SQL, SQL Server — reconciliation and integrity checks |
+| **Data** | T-SQL, SQL Server |
 | **Testing** | SIT coordination, UAT facilitation, defect tracking |
-| **Learning** | Python, LLM APIs, security fundamentals |
-
----
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=thevoidsyntax&bg_color=0a192f&color=ffffff&line=00b4d8&point=ffffff&area=true&area_color=0d3b66&hide_border=true&custom_title=Contribution%20Activity" width="100%" alt="Activity Graph"/>
-</div>
+| **Learning** | Python, LLM APIs, access control review |
 
 ---
 
 ### Learning Log
 
-Updated when something is actually finished.
-
 | Topic | Where I'm at |
 |---|---|
-| LLM API integration | Built a few working scripts. See `llm-doc-drafter`. |
+| LLM API integration | Written and dry-run tested. See `LLM-Doc-Drafter`. |
+| Access control review | Built an SoD checker. See `Access-Matrix-Auditor`. |
 | Prompt design for business tasks | Understand what works. Still learning what breaks. |
-| Agentic workflows | Reading. Nothing built yet. |
-| Security fundamentals | Can follow a threat model conversation. Can't lead one. |
-| Threat modeling | Early. Mostly reading case studies. |
-| Python for data work | Pandas, file handling, API calls. No production code. |
+| Threat modeling | Reading. Nothing built yet. |
+| Python for data work | Comfortable with CSV and file handling. No production code. |
+
+Most of what I produce doesn't live on GitHub. It lives in Confluence, in requirement documents, and in the ninety minutes I spend watching someone do their job before I write a single line about it.
 
 ---
 
-Open to Business Analyst roles, process improvement projects, and requirements consulting. Based in Jakarta.
+Open to Business Analyst roles, process improvement projects, and requirements consulting.
 
 Fastest reply via [email](mailto:riowicaksono.work@gmail.com) or [LinkedIn](https://linkedin.com/in/riowicaksono).
 
