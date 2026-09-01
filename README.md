@@ -104,6 +104,12 @@ Two of the four outcomes are "don't automate." That ratio is roughly accurate in
 
 ---
 
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=thevoidsyntax&bg_color=0a192f&color=ffffff&line=00b4d8&point=ffffff&area=true&area_color=0d3b66&hide_border=true&custom_title=Contribution%20Activity" width="100%" alt="Activity Graph"/>
+</div>
+
+---
+
 ### Learning Log
 
 Updated when something is actually finished.
@@ -116,6 +122,10 @@ Updated when something is actually finished.
 | Security fundamentals | Can follow a threat model conversation. Can't lead one. |
 | Threat modeling | Early. Mostly reading case studies. |
 | Python for data work | Pandas, file handling, API calls. No production code. |
+
+---
+
+
 
 ---
 
